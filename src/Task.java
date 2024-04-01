@@ -10,6 +10,7 @@ public class Task {
     public String title, description;
 
     public Date dueDate;
+
     public TaskPriority priority;
     public TaskStatus status;
 
