@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1d707cd-8598-47cd-9fe2-e4bbde438b2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task Manager.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShopObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShopObj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShoppingTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShoppingTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WorkTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,11 +38,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/julia/PAO-231/LAB4",
+    "last_opened_file_path": "F:/TaskManager/Task Manager",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,6 +70,10 @@
       <workItem from="1710793305526" duration="1791000" />
       <workItem from="1711031168642" duration="762000" />
       <workItem from="1711635510951" duration="147000" />
+      <workItem from="1712012970352" duration="115000" />
+      <workItem from="1712044503323" duration="614000" />
+      <workItem from="1712081268834" duration="1363000" />
+      <workItem from="1712167083418" duration="4051000" />
     </task>
     <servers />
   </component>

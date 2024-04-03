@@ -12,7 +12,7 @@ public class ShoppingTask extends Task{
         super(user, title, description, dueDate, priority, status);
         this.shoppingList = shoppingList;
     }
-
+    public ShoppingTask(){}
     Scanner scanner = new Scanner(System.in);
    public void addObj() throws ParseException {
         ShopObj shopObj = new ShopObj();
@@ -23,16 +23,57 @@ public class ShoppingTask extends Task{
     @Override
     public String toString() {
         return "ShoppingTask{" +
-                "store='" + store + '\'' +
-                ", shoppingList=" + shoppingList +
                 ", user=" + user +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", dueDate=" + dueDate +
                 ", priority=" + priority +
                 ", status=" + status +
+                "store='" + store + '\'' +
+                ", shoppingList=" + shoppingList +
                 '}';
     }
+
+    @Override
+    public void read(Scanner in) {
+        super.read(in);
+        System.out.println("Store: ");
+        store = in.nextLine();
+
+        System.out.println("Start writing down your shopping list: ");
+        ShopObj obj = new ShopObj();
+        try {
+            obj.read(scanner);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        String ok = "";
+        System.out.println("Do you want to add another? y/n:");
+        ok = in.nextLine();
+        while(ok == "y" || ok == "Y"){
+            try {
+                obj.read(scanner);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("Do you want to add another? y/n:");
+            ok = in.nextLine();
+
+        }
+
+    }
+
+    @Override
+    public void printTask() {
+        super.printTask();
+        System.out.println("Store: " + store );
+        for (ShopObj obj : shoppingList) {
+            obj.print();
+        }
+
+    }
+
+
 
     //getters and setters
     public String getStore() {

@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.Scanner;
 
 public class WorkTask extends Task{
     public String project;
@@ -10,20 +11,37 @@ public class WorkTask extends Task{
         this.boss = boss;
     }
 
+    public WorkTask(){}
 
 
     @Override
     public String toString() {
         return "WorkTask{" +
-                "project='" + project + '\'' +
-                ", boss='" + boss + '\'' +
                 ", user=" + user +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", dueDate=" + dueDate +
                 ", priority=" + priority +
                 ", status=" + status +
+                "project='" + project + '\'' +
+                ", boss='" + boss + '\'' +
                 '}';
+    }
+
+    @Override
+    public void read(Scanner in) {
+        super.read(in);
+        System.out.println("Project: ");
+        project = in.nextLine();
+        System.out.println("Boss: ");
+        boss = in.nextLine();
+    }
+
+    @Override
+    public void printTask() {
+        super.printTask();
+        System.out.println("Project: " + project);
+        System.out.println("Boss" + boss);
     }
 
     public String getProject() {

@@ -1,6 +1,8 @@
 import java.text.ParseException;
 import java.util.Scanner;
 
+import static java.lang.System.in;
+
 public class ShopObj {
 
     public String name;
@@ -10,8 +12,9 @@ public class ShopObj {
     public double finalPrice;
 
     //void read function +print
-    public ShopObj(){}
 
+
+    public ShopObj(){}
 
     public ShopObj(String name, String description, int quantity, double pricePerUnit, double finalPrice) {
         this.name = name;
@@ -20,6 +23,8 @@ public class ShopObj {
         this.pricePerUnit = pricePerUnit;
         this.finalPrice = finalPrice;
     }
+
+
 
     public void read(Scanner in) throws ParseException{
         System.out.println("Enter name: ");
@@ -71,6 +76,13 @@ public class ShopObj {
     }
 
 
+    public void update(ShopObj shopObj) throws ParseException {
+        System.out.println("Initial values: ");
+        shopObj.print();
+        Scanner in = new Scanner(System.in);
+        shopObj.read(in);
+
+    }
 
     //getters and setters
 

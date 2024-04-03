@@ -9,8 +9,8 @@ public class Main {
 
         //System.out.print(user.toString());
 
-        Task task = new Task();
-        task.read(scanner);
-        task.printTask();
+       WorkTask workTask = new WorkTask();
+       workTask.read(scanner);
+        System.out.println(workTask.toString());
     }
 }
