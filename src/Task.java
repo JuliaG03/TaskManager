@@ -83,6 +83,9 @@ public class Task {
                 '}';
     }
 
+    public void addUser(User user){
+        setUser(user);
+    }
     public User getUser() {
         return user;
     }

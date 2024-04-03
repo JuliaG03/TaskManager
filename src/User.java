@@ -15,6 +15,13 @@ public class User {
     //lista de taskuri
 
     //lista de categorii de taskuri?
+    TaskList<Task> tasks;
+    TaskList<ShoppingTask> shoppingTasks;
+    TaskList<WorkTask>  workTasks;
+
+    //added these 3 attributes - to do getters,setters, function to add to them, print,
+    //dont forget - toString to TaskList class
+    //
 
 
 
