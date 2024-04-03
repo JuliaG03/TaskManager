@@ -79,6 +79,7 @@ public class ShopObj {
     public void update(ShopObj shopObj) throws ParseException {
         System.out.println("Initial values: ");
         shopObj.print();
+        System.out.println("Give the new values: ");
         Scanner in = new Scanner(System.in);
         shopObj.read(in);
 

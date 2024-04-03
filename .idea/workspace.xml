@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1d707cd-8598-47cd-9fe2-e4bbde438b2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShopObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShopObj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShoppingTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShoppingTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WorkTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +69,24 @@
       <workItem from="1712012970352" duration="115000" />
       <workItem from="1712044503323" duration="614000" />
       <workItem from="1712081268834" duration="1363000" />
-      <workItem from="1712167083418" duration="4051000" />
+      <workItem from="1712167083418" duration="4797000" />
     </task>
+    <task id="LOCAL-00001" summary="completed classes, started adding functions and methods">
+      <option name="closed" value="true" />
+      <created>1712176812815</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712176812815</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="completed classes, started adding functions and methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed classes, started adding functions and methods" />
   </component>
 </project>
