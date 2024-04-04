@@ -24,6 +24,8 @@ public class Main {
             System.out.println("\n"+(i+1) + "." + commandsUser.get(i));
         }
     }
+
+    /*
     public static void main(String[] args) throws ParseException {
         Scanner in = new Scanner(System.in);
         boolean end = false;
@@ -64,7 +66,7 @@ public class Main {
 
         }
 
-
+*/
 
 
     }
