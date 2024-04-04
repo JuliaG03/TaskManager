@@ -6,15 +6,15 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.UUID;
 
+import static java.lang.System.in;
+
 public class User {
     private final String  userId = generateUserId();
     private String firstName, lastName;
     private Date birthDate;
     private String email, password;
 
-    //lista de taskuri
 
-    //lista de categorii de taskuri?
     TaskList<Task> tasks;
     TaskList<ShoppingTask> shoppingTasks;
     TaskList<WorkTask>  workTasks;
@@ -32,6 +32,9 @@ public class User {
         this.birthDate = birthDate;
         this.email = email;
         this.password = password;
+        this.tasks = new TaskList<Task>();
+        this.shoppingTasks = new TaskList<ShoppingTask>();
+        this.workTasks = new TaskList<WorkTask>();
     }
 
     public User(){}
@@ -98,7 +101,55 @@ public class User {
                 '}';
     }
 
+
+    public void updateCredentials(User user) throws ParseException {
+        Scanner scanner = new Scanner(in);
+        System.out.println("Initial Credentials: ");
+        user.printUser();
+        System.out.println("Introduce your new credentials: ");
+        user.read(scanner);
+    }
+
+    public void updatePassword(User user) throws ParseException{
+      Scanner in  =new Scanner(System.in);
+        System.out.println("\nVerify your  old password: ");
+        String password = in.nextLine();
+        if( user.getPassword().equals(password)){
+            System.out.println("\nCorrect password! Please enter your new password: ");
+            password = in.nextLine();
+            user.setPassword(password);
+            System.out.println("\nPassword changed successfully. ");
+        } else{
+            System.out.println("/nIncorrect password.");}
+
+    }
+
     //getters + setters
+
+
+    public TaskList<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(TaskList<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public TaskList<ShoppingTask> getShoppingTasks() {
+        return shoppingTasks;
+    }
+
+    public void setShoppingTasks(TaskList<ShoppingTask> shoppingTasks) {
+        this.shoppingTasks = shoppingTasks;
+    }
+
+    public TaskList<WorkTask> getWorkTasks() {
+        return workTasks;
+    }
+
+    public void setWorkTasks(TaskList<WorkTask> workTasks) {
+        this.workTasks = workTasks;
+    }
 
     public String getUserId(){
         return userId;
