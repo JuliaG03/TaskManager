@@ -4,7 +4,7 @@ import java.util.Scanner;
 import static java.lang.System.in;
 
 public class AuthenticationService {
-    private Data data;
+    private Data data = new Data();
 
     public AuthenticationService(Data data) {
         this.data = data;
@@ -34,6 +34,8 @@ public class AuthenticationService {
             user.read(in);
             if (verifyUsername(user.getUsername())) {
                 this.data.getUsers().add(user);
+                System.out.println("\nRegistration done. Please Login.\n");
+                logIn(data.in);
                 break;
             } else {
                 System.out.println("\n Username already exists. Please register again.");
@@ -42,10 +44,11 @@ public class AuthenticationService {
 
     }
     public void logIn(Scanner in) throws ParseException{
+        System.out.println("\nPlease Log in: \n");
         User user = new User();
-        System.out.println("Username: ");
+        System.out.println("\nUsername: ");
         String username = in.nextLine();
-        System.out.println("Password: ");
+        System.out.println("\nPassword: ");
         String password = in.nextLine();
         for(User userr: data.getUsers()){
             if(userr.verifyCredentials(username,password)){
@@ -53,10 +56,23 @@ public class AuthenticationService {
                 System.out.println("\nLogin Credentials correct!");
                 break;
             }
-            else {
-                System.out.println("There is no user registered with this username and password! Try again.");
-            }
         }
+        if(data.getLoggedin().getUsername()!=username){
+            System.out.println("There is no user registered with this username and password! Try again.");
+        }
+    }
+
+    public void loginAdmin(String username, String password){
+       // if (data.getUsers() != null) { // Check if users list is not null
+            for(User userr: data.getUsers()){
+                if(userr.verifyCredentials(username,password)){
+                    data.setLoggedin(userr);
+                    System.out.println("\nLogin Credentials correct!");
+                    return; // Exit method after successful login
+                }
+            }
+      //  }
+      //  System.out.println("There is no admin registered with this username and password! Try again.");
     }
 
 

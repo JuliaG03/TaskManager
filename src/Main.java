@@ -2,28 +2,33 @@ import java.text.ParseException;
 import java.util.*;
 
 public class Main {
-    static List<String> commandsUser = Arrays.asList(
-            "Register",
-            "Login",
-            "Login Admin",
-            "Logout",
-            "SeeTasks",
-            "AddNewTask",
-            "AddWorkTask",
-            "AddShoppingTask",
-            "ModifyTask",
-            "SeeWorkTasks",
-            "SeeShoppingTask",
-            "help");
-    static List<String> commandsAdmin = Arrays.asList(
-            "SeeAllUsers",
-            "DeleteUser");
 
-    private static void printAllUserCommands(){
-        for(int i  =0; i< commandsUser.size();i++){
-            System.out.println("\n"+(i+1) + "." + commandsUser.get(i));
+
+    public Main() {}
+
+    public static void main(String[] args) throws ParseException{
+        List<User> userssss = new ArrayList<>();
+        User loggedinnnnn = new User();
+        Data data = new Data(userssss,loggedinnnnn);
+        AuthenticationService authenticationService = new AuthenticationService(data);
+        MainService mainService = new MainService(data) ;
+
+        mainService.startapp();
+        for ( User userr : data.getUsers()){
+            userr.printUser();
+            System.out.println("User nr1:");
         }
+
+        mainService.authentication();
+
+        data.getLoggedin().printUser();
+
+
+
     }
+
+
+
 
     /*
     public static void main(String[] args) throws ParseException {

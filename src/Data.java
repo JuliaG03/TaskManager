@@ -19,7 +19,9 @@ public class Data {
 
     //getters and setters
     public List<User> getUsers() {
-        return users;
+        List<User> empty = new ArrayList<>();
+        if (users.isEmpty()) {return empty;}
+        else {return users;}
     }
 
     public void setUsers(List<User> users) {

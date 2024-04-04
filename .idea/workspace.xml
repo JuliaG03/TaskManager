@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1d707cd-8598-47cd-9fe2-e4bbde438b2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/TaskService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AuthenticationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShopService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShoppingTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShoppingTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaskList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +60,20 @@
       <ReportDescription localRun="true" path="C:\Users\julia\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="aedd9ecb-2fb6-41dd-87ec-b0611ee30c93" reportId="Task Manager/qodana/2024-04-04" />
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Task Manager" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -89,7 +99,7 @@
       <workItem from="1712222022016" duration="11860000" />
       <workItem from="1712256812464" duration="6988000" />
       <workItem from="1712264450772" duration="1190000" />
-      <workItem from="1712266730471" duration="453000" />
+      <workItem from="1712266730471" duration="4886000" />
     </task>
     <task id="LOCAL-00001" summary="completed classes, started adding functions and methods">
       <option name="closed" value="true" />
@@ -147,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712259191396</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="finished services">
+      <option name="closed" value="true" />
+      <created>1712267241921</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1712267241921</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +179,7 @@
     <MESSAGE value="started Main Service" />
     <MESSAGE value="started main" />
     <MESSAGE value="restructured the project.&#10;moved methods to AuthenticationService. Started ShopService" />
-    <option name="LAST_COMMIT_MESSAGE" value="restructured the project.&#10;moved methods to AuthenticationService. Started ShopService" />
+    <MESSAGE value="finished services" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished services" />
   </component>
 </project>

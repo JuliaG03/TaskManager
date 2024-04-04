@@ -26,7 +26,7 @@ public class User {
 
 
     public User( String firstName, String lastName, String username,Date birthDate, String email, String password) {
-
+        this.userId = generateUserId();
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
