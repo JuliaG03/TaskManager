@@ -76,7 +76,7 @@ public class AuthenticationService {
     }
 
 
-    public int chooseUser(){
+    public User chooseUser(){
         Scanner in = new Scanner(System.in);
         int index=0;
         for(User userr: data.getUsers()){
@@ -85,7 +85,7 @@ public class AuthenticationService {
         }
         System.out.println("Choose user index: ");
         index = Integer.parseInt(in.nextLine());
-        return index;
+        return data.getUsers().get(index);
     }
 
 

@@ -14,12 +14,11 @@ public class Main {
         MainService mainService = new MainService(data) ;
 
         mainService.startapp();
-        for ( User userr : data.getUsers()){
-            userr.printUser();
-            System.out.println("User nr1:");
-        }
 
-        mainService.authentication();
+        mainService.authentication();  // + methods for admin
+
+        mainService.admin();
+
 
         data.getLoggedin().printUser();
 
