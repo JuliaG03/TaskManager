@@ -1,10 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Data {
     private static Data instance;
     private List<User> users = new ArrayList<>();
     private User loggedin = null;
+
+    Scanner in = new Scanner(System.in);
 
     //constructors
     public Data(){}

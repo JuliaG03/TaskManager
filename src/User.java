@@ -109,44 +109,9 @@ public class User {
     }
 
     public boolean verifyCredentials ( String username, String password){
-      if (( username == this.username) || (password == this.password)){
-          return true;
-      }else{return false;}
-    }
-    public void updateCredentials(User user) throws ParseException {
-        Scanner scanner = new Scanner(in);
-        System.out.println("Initial Credentials: ");
-        user.printUser();
-        System.out.println("Introduce your new credentials: ");
-        user.read(scanner);
-    }
-
-    public void updatePassword(User user) throws ParseException{
-      Scanner in  =new Scanner(System.in);
-        System.out.println("\nVerify your  old password: ");
-        String password = in.nextLine();
-        if( user.getPassword().equals(password)){
-            System.out.println("\nCorrect password! Please enter your new password: ");
-            password = in.nextLine();
-            user.setPassword(password);
-            System.out.println("\nPassword changed successfully. ");
-        } else{
-            System.out.println("/nIncorrect password.");}
-
-    }
-
-    public void AddTask(Task task){
-
-      tasks.add(task);
-    }
-
-    public void addShoppingTask(ShoppingTask task){
-
-      shoppingTasks.add(task);
-
-    }
-    public void addWorkTask(WorkTask task){
-      workTasks.add(task);
+        if (( username == this.username) || (password == this.password)){
+            return true;
+        }else{return false;}
     }
 
 

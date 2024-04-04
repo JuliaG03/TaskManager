@@ -1,6 +1,7 @@
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ShoppingTask extends Task{
@@ -14,6 +15,8 @@ public class ShoppingTask extends Task{
     }
     public ShoppingTask(){}
     Scanner scanner = new Scanner(System.in);
+
+
    public void addObj() throws ParseException {
         ShopObj shopObj = new ShopObj();
         shopObj.read( scanner);
@@ -49,8 +52,8 @@ public class ShoppingTask extends Task{
         }
         String ok = "";
         System.out.println("Do you want to add another? y/n:");
-        ok = in.nextLine();
-        while(ok == "y" || ok == "Y"){
+        ok = in.nextLine().toLowerCase();
+        while(ok.equals("y")){
             try {
                 obj.read(scanner);
             } catch (ParseException e) {
@@ -72,8 +75,6 @@ public class ShoppingTask extends Task{
         }
 
     }
-
-
 
     //getters and setters
     public String getStore() {

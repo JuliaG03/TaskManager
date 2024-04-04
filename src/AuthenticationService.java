@@ -1,6 +1,8 @@
 import java.text.ParseException;
 import java.util.Scanner;
 
+import static java.lang.System.in;
+
 public class AuthenticationService {
     private Data data;
 
@@ -70,9 +72,31 @@ public class AuthenticationService {
         return index;
     }
 
+
+    public void updateCredentials(User user) throws ParseException {
+        Scanner scanner = new Scanner(in);
+        System.out.println("Initial Credentials: ");
+        user.printUser();
+        System.out.println("Introduce your new credentials: ");
+        user.read(scanner);
+    }
+
+    public void updatePassword(User user) throws ParseException{
+        Scanner in  =new Scanner(System.in);
+        System.out.println("\nVerify your  old password: ");
+        String password = in.nextLine();
+        if( user.getPassword().equals(password)){
+            System.out.println("\nCorrect password! Please enter your new password: ");
+            password = in.nextLine();
+            user.setPassword(password);
+            System.out.println("\nPassword changed successfully. ");
+        } else{
+            System.out.println("/nIncorrect password.");}
+
+    }
     //----------------------ADMIN:
 
-    Admin admin = new Admin();
+
 
     public void deleteUser(User user){
         if(findUserIndex(user)!=data.getUsers().size()+1) data.getUsers().remove(findUserIndex(user));

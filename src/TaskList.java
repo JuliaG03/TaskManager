@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class TaskList <T extends Task>{
-    private List<T> taskList;
+    private List<T> taskList = new ArrayList<>();
 
 
     public TaskList(List<T> taskList) {
@@ -24,9 +25,7 @@ public class TaskList <T extends Task>{
     public void add(T t){
         taskList.add( t);
     }
-    public void delete(T t){
-        taskList.remove( t);
-    }
+
 
     public T search(String title){
         for ( T task: taskList){
@@ -57,7 +56,7 @@ public class TaskList <T extends Task>{
 
     public void seeOnlyDone(){
         for( T task: taskList){
-            if( task.getStatus().equals("DONE")){
+            if( task.getStatus() == TaskStatus.DONE){
                 task.printTask();
                 System.out.println(",\n");
             }
@@ -67,7 +66,7 @@ public class TaskList <T extends Task>{
 
     public void seeOnlyInProgress(){
         for( T task: taskList){
-            if( task.getStatus().equals("IN_PROGRESS")){
+            if( task.getStatus() == TaskStatus.IN_PROGRESS){
                 task.printTask();
                 System.out.println(",\n");
             }
@@ -77,7 +76,7 @@ public class TaskList <T extends Task>{
 
     public void seeOnlyHigh(){
         for( T task: taskList){
-            if( task.getPriority().equals("HIGH")){
+            if( task.getPriority() == TaskPriority.HIGH){
                 task.printTask();
                 System.out.println(",\n");
             }
@@ -87,7 +86,7 @@ public class TaskList <T extends Task>{
 
     public void seeOnlyLow(){
         for( T task: taskList){
-            if( task.getPriority().equals("LOW")){
+            if( task.getPriority() == TaskPriority.LOW){
                 task.printTask();
                 System.out.println(",\n");
             }
@@ -97,7 +96,7 @@ public class TaskList <T extends Task>{
 
     public void seeOnlyMedium(){
         for( T task: taskList){
-            if( task.getPriority().equals("MEDIUM")){
+            if( task.getPriority() == TaskPriority.MEDIUM){
                 task.printTask();
                 System.out.println(",\n");
             }
@@ -107,7 +106,7 @@ public class TaskList <T extends Task>{
 
     public void seeOnlyTodo(){
         for( T task: taskList){
-            if( task.getStatus().equals("TODO")){
+            if( task.getStatus() == TaskStatus.TODO){
                 task.printTask();
                 System.out.println(",\n");
             }
