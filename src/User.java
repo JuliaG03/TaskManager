@@ -9,15 +9,15 @@ import java.util.UUID;
 import static java.lang.System.in;
 
 public class User {
-    private final String  userId = generateUserId();
+    private  String  userId = generateUserId();
     private String firstName, lastName;
+    private String username;
     private Date birthDate;
     private String email, password;
 
-
-    TaskList<Task> tasks;
-    TaskList<ShoppingTask> shoppingTasks;
-    TaskList<WorkTask>  workTasks;
+    private TaskList<Task> tasks;
+    private TaskList<ShoppingTask> shoppingTasks;
+    private TaskList<WorkTask>  workTasks;
 
     //added these 3 attributes - to do getters,setters, function to add to them, print,
     //dont forget - toString to TaskList class
@@ -25,10 +25,11 @@ public class User {
 
 
 
-    public User( String firstName, String lastName, Date birthDate, String email, String password) {
+    public User( String firstName, String lastName, String username,Date birthDate, String email, String password) {
 
         this.firstName = firstName;
         this.lastName = lastName;
+        this.username = username;
         this.birthDate = birthDate;
         this.email = email;
         this.password = password;
@@ -55,9 +56,10 @@ public class User {
       return UUID.randomUUID().toString();
   }
     public void read( ResultSet in) throws SQLException{
-
+        this.userId = generateUserId();
         this.firstName = in.getString("first name");
         this.lastName = in.getString("last name");
+        this.username = in.getString("username");
         this.birthDate = in.getDate("Birth date");
         this.email = in.getString("Email");
         this.password = in.getString("Password");
@@ -65,10 +67,13 @@ public class User {
     }
 
     public void read(Scanner in) throws ParseException{
+      this.userId = generateUserId();
         System.out.println("First name: ");
         this.firstName = in.nextLine();
         System.out.println("Last name: ");
         this.lastName = in.nextLine();
+        System.out.println("Username: ");
+        this.username = in.nextLine();
         System.out.println("Birth date: ");
         String birthDateStr = in.nextLine();
         this.birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(birthDateStr);
@@ -85,6 +90,7 @@ public class User {
         System.out.println("User ID: " + getUserId());
         System.out.println("First Name: " + getFirstName());
         System.out.println("Last Name: " + getLastName());
+        System.out.println("Username: "+ getUsername());
         System.out.println("Birth Date: " + dateFormat.format(getBirthDate()));
         System.out.println("Email: " + getEmail());
     }
@@ -95,13 +101,18 @@ public class User {
                 "userId='" + userId + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", username='" + username +'\'' +
                 ", birthDate=" + birthDate +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
 
-
+    public boolean verifyCredentials ( String username, String password){
+      if (( username == this.username) || (password == this.password)){
+          return true;
+      }else{return false;}
+    }
     public void updateCredentials(User user) throws ParseException {
         Scanner scanner = new Scanner(in);
         System.out.println("Initial Credentials: ");
@@ -126,6 +137,14 @@ public class User {
 
     //getters + setters
 
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public TaskList<Task> getTasks() {
         return tasks;
