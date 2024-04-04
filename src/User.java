@@ -135,6 +135,21 @@ public class User {
 
     }
 
+    public void AddTask(Task task){
+
+      tasks.add(task);
+    }
+
+    public void addShoppingTask(ShoppingTask task){
+
+      shoppingTasks.add(task);
+
+    }
+    public void addWorkTask(WorkTask task){
+      workTasks.add(task);
+    }
+
+
     //getters + setters
 
 

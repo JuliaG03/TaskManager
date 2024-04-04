@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1d707cd-8598-47cd-9fe2-e4bbde438b2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MainService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +73,7 @@
       <workItem from="1712044503323" duration="614000" />
       <workItem from="1712081268834" duration="1363000" />
       <workItem from="1712167083418" duration="6753000" />
-      <workItem from="1712222022016" duration="4701000" />
+      <workItem from="1712222022016" duration="7586000" />
     </task>
     <task id="LOCAL-00001" summary="completed classes, started adding functions and methods">
       <option name="closed" value="true" />
@@ -106,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712224231562</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="started Main Service">
+      <option name="closed" value="true" />
+      <created>1712227627988</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712227627988</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +126,7 @@
     <MESSAGE value="finisjed method for task classes" />
     <MESSAGE value="added methods for TaskList class, to continue implementing methods for User" />
     <MESSAGE value="done user methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="done user methods" />
+    <MESSAGE value="started Main Service" />
+    <option name="LAST_COMMIT_MESSAGE" value="started Main Service" />
   </component>
 </project>
