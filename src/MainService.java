@@ -10,10 +10,12 @@ public class MainService {
     private Data data;
     private AuthenticationService authenticationService = new AuthenticationService(data);
     private TaskService taskService = new TaskService(data);
+    private ShopService shopService = new ShopService(data);
     public MainService(Data data) throws ParseException {
         this.data = data;
         this.authenticationService = new AuthenticationService(data);
         this.taskService = new TaskService(data);
+        this.shopService = new ShopService(data);
     }
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -102,6 +104,115 @@ public class MainService {
             }
             }
 
+        }
+    }
+
+
+    public void user() throws ParseException {
+        System.out.println("Welcome, " + data.getLoggedin().getFirstName());
+        System.out.println("What do you want to do today? " +
+                "\n 1.See all tasks" +
+                "\n 2.See all simple tasks" +
+                "\n 3.See all Work tasks" +
+                "\n 4.See all Shopping Tasks" +
+                "\n 5.Add new simple task" +
+                "\n 6.Add new work task" +
+                "\n 7.Add new shopping task" +
+                "\n 8.Delete a simple task" +
+                "\n 9.Delete a work task" +
+                "\n 10.Delete a shopping task" +
+                "\n 11.Settings" +
+                "\n 0. Exit");
+
+        System.out.println("Please input the number of your choice.");
+        String choice = data.in.nextLine();
+        while(choice!= "0"){
+
+            switch (choice){
+                case "1":{
+                    System.out.println("Here are all of your tasks:\n");
+                    taskService.seeAllTasks();
+                }
+                case "2":{
+                    System.out.println("Here are all of your simple tasks: \n");
+                    taskService.seeAllSimpleTasks();
+                }
+                case "3":{
+                    System.out.println("Here are all of your work tasks : \n");
+                    taskService.seeAllWorkTasks();
+                }
+                case "4":{
+                    System.out.println("Here are all of your shopping tasks: ");
+                    taskService.seeAllShoppingTasks();
+                }
+                case "5":{
+                    System.out.println("Add a new simple task");
+                    taskService.addAndCreateSimpleTask();
+
+                }
+                case "6":{
+                    System.out.println("Add a new work task: ");
+                    taskService.addAndCreteWorkTask();
+                }
+                case "7":{
+                    System.out.println("Add a new shopping task");
+                    taskService.addandCreateShoppingTask();
+                }
+                case "8":{
+                    System.out.println("Delete a simple task: ");
+                    taskService.deleteTask();
+                }
+                case "9":{
+                    System.out.println("Delete a work task: ");
+                    taskService.deleteWorkTask();
+                }
+                case "10": {
+                    System.out.println("Delete a shopping task: ");
+                    taskService.deleteShoppingTask();
+                }
+                case "11":{
+                    System.out.println("##########Settings ###### ");
+                    System.out.println("\nWhat do you want to do? " +
+                            "\n1. See your personal data" +
+                            "\n2. Update your credentials" +
+                            "\n3. Update Password"+
+                            "\n4. Wipe all of your tasks lists"+
+                            "\n5. Delete your account");
+
+                    String input = data.in.nextLine();
+                    while ("12345".contains(input)) {
+
+
+                        switch (input) {
+                            case "1": {
+                                System.out.println("See your personal data");
+                                data.getLoggedin().printUser();
+                            }
+                            case "2": {
+                                System.out.println("2. Update your credentials:");
+                                authenticationService.updateCredentials(data.getLoggedin());}
+                            case "3": {
+                                System.out.println("3. Update your password: ");
+                               authenticationService.updatePassword(data.getLoggedin());         }
+                            case "4": {
+                                System.out.println("Wipe all of your tasks and start fresh");
+                                taskService.deleteAllTasklists();
+                            }
+                            case "5": {
+                                System.out.println("Delete your account");
+                                data.getUsers().remove(data.getLoggedin());
+                                data.setLoggedin(null);
+                            }
+                            default:
+                                break;
+                        }
+                    }
+                }
+
+
+            }
+            System.out.println("Please input the number of your choice.");
+            choice = data.in.nextLine();
         }
     }
 

@@ -17,7 +17,11 @@ public class Main {
 
         mainService.authentication();  // + methods for admin
 
-        mainService.admin();
+        mainService.user();
+
+        //mainService.admin();
+
+
 
 
         data.getLoggedin().printUser();

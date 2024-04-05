@@ -96,6 +96,30 @@ public class TaskService {
     public void deleteWorkTask(){data.getLoggedin().getWorkTasks().getTaskList().remove(selectWorkTask());}
 
 
+    public void seeAllSimpleTasks(){
+        for( Task task : data.getLoggedin().getTasks().getTaskList()){
+            task.printTask();
+        }
+    }
+
+    public void seeAllWorkTasks(){
+        for( Task task : data.getLoggedin().getWorkTasks().getTaskList()){
+            task.printTask();
+        }
+    }
+    public void seeAllShoppingTasks(){
+        for( Task task : data.getLoggedin().getShoppingTasks().getTaskList()){
+            task.printTask();
+        }
+    }
+    public void seeAllTasks(){
+        System.out.println("Simple tasks:");
+        seeAllSimpleTasks();
+        System.out.println("Work tasks:");
+        seeAllWorkTasks();
+        System.out.println("Shopping tasks");
+        seeAllShoppingTasks();
+    }
     public void seeShoppingList(ShoppingTask shoppingTask){
         for(ShopObj shopobj: shoppingTask.getShoppingList()){
             shopobj.print();
@@ -110,5 +134,11 @@ public class TaskService {
 
     public void setData(Data data) {
         this.data = data;
+    }
+
+    public void deleteAllTasklists(){
+        data.getLoggedin().setTasks(null);
+        data.getLoggedin().setShoppingTasks(null);
+        data.getLoggedin().setWorkTasks(null);
     }
 }
