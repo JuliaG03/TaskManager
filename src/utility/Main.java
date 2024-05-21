@@ -14,9 +14,9 @@ public class Main {
     public Main() {}
 
     public static void main(String[] args) throws ParseException{
-        List<User> userssss = new ArrayList<>();
-        User loggedinnnnn = new User();
-        Data data = new Data(userssss,loggedinnnnn);
+        List<User> listOfUsers = new ArrayList<>();
+        User loggedinuser = new User();
+        Data data = new Data(listOfUsers,loggedinuser);
         AuthenticationService authenticationService = new AuthenticationService(data);
         MainService mainService = new MainService(data) ;
 
