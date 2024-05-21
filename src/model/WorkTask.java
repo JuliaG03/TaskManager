@@ -1,7 +1,14 @@
+package model;
+
+import enums.TaskPriority;
+import enums.TaskStatus;
+import model.Task;
+import model.User;
+
 import java.util.Date;
 import java.util.Scanner;
 
-public class WorkTask extends Task{
+public class WorkTask extends Task {
     public String project;
     public String boss;
 
@@ -16,7 +23,7 @@ public class WorkTask extends Task{
 
     @Override
     public String toString() {
-        return "WorkTask{" +
+        return "model.WorkTask{" +
                 ", user=" + user +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +

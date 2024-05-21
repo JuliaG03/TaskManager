@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d1d707cd-8598-47cd-9fe2-e4bbde438b2a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +96,8 @@
       <workItem from="1712264450772" duration="1190000" />
       <workItem from="1712266730471" duration="7105000" />
       <workItem from="1712325853023" duration="2134000" />
+      <workItem from="1712328014983" duration="722000" />
+      <workItem from="1712875123141" duration="73000" />
     </task>
     <task id="LOCAL-00001" summary="completed classes, started adding functions and methods">
       <option name="closed" value="true" />
@@ -180,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712273129603</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="finished main">
+      <option name="closed" value="true" />
+      <created>1712328269416</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712328269416</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +204,7 @@
     <MESSAGE value="finished services" />
     <MESSAGE value="done authentication - register, login, loginAdmin" />
     <MESSAGE value="finished admin method implementation in main ( added them in authetication method)" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished admin method implementation in main ( added them in authetication method)" />
+    <MESSAGE value="finished main" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished main" />
   </component>
 </project>

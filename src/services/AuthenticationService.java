@@ -1,3 +1,7 @@
+package services;
+
+import model.User;
+import utility.Data;
 import java.text.ParseException;
 import java.util.Scanner;
 
@@ -63,7 +67,7 @@ public class AuthenticationService {
     }
 
     public void loginAdmin(String username, String password){
-       // if (data.getUsers() != null) { // Check if users list is not null
+       if (data.getUsers() != null) { // Check if users list is not null
             for(User userr: data.getUsers()){
                 if(userr.verifyCredentials(username,password)){
                     data.setLoggedin(userr);
@@ -71,8 +75,8 @@ public class AuthenticationService {
                     return; // Exit method after successful login
                 }
             }
-      //  }
-      //  System.out.println("There is no admin registered with this username and password! Try again.");
+       }
+       System.out.println("There is no admin registered with this username and password! Try again.");
     }
 
 
@@ -81,7 +85,7 @@ public class AuthenticationService {
         int index=0;
         for(User userr: data.getUsers()){
             System.out.println(index +". \n" );
-            userr.printUser();
+            userr.printUserDetails();
         }
         System.out.println("Choose user index: ");
         index = Integer.parseInt(in.nextLine());
@@ -92,7 +96,7 @@ public class AuthenticationService {
     public void updateCredentials(User user) throws ParseException {
         Scanner scanner = new Scanner(in);
         System.out.println("Initial Credentials: ");
-        user.printUser();
+        user.printUserDetails();
         System.out.println("Introduce your new credentials: ");
         user.read(scanner);
     }
@@ -124,7 +128,7 @@ public class AuthenticationService {
         for(User user: data.getUsers()){
             i++;
             System.out.println("\n" + i +". ");
-            user.printUser();
+            user.printUserDetails();
         }
     }
 

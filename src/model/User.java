@@ -1,3 +1,8 @@
+package model;
+
+import model.ShoppingTask;
+import model.Task;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -6,8 +11,6 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.UUID;
 
-import static java.lang.System.in;
-
 public class User {
     private  String  userId = generateUserId();
     private String firstName, lastName;
@@ -15,12 +18,12 @@ public class User {
     private Date birthDate;
     private String email, password;
 
-    private TaskList<Task> tasks;
-    private TaskList<ShoppingTask> shoppingTasks;
-    private TaskList<WorkTask>  workTasks;
+    private TaskList<Task> tasks = null;
+    private TaskList<ShoppingTask> shoppingTasks = null;
+    private TaskList<WorkTask> workTasks = null;
 
     //added these 3 attributes - to do getters,setters, function to add to them, print,
-    //dont forget - toString to TaskList class
+    //dont forget - toString to model.TaskList class
     //
 
 
@@ -45,7 +48,7 @@ public class User {
         this.read(in);
     }
   /*
-    public User(int userId, ResultSet in ) throws SQLException{
+    public model.User(int userId, ResultSet in ) throws SQLException{
         this.userId = userId;
         this.read(in);
     }
@@ -84,10 +87,10 @@ public class User {
 
     }
 
-    public void printUser(){
+    public void printUserDetails(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-        System.out.println("User ID: " + getUserId());
+        System.out.println("model.User ID: " + getUserId());
         System.out.println("First Name: " + getFirstName());
         System.out.println("Last Name: " + getLastName());
         System.out.println("Username: "+ getUsername());
@@ -97,7 +100,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "model.User{" +
                 "userId='" + userId + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

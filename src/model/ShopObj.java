@@ -1,7 +1,7 @@
+package model;
+
 import java.text.ParseException;
 import java.util.Scanner;
-
-import static java.lang.System.in;
 
 public class ShopObj {
 
@@ -49,7 +49,7 @@ public class ShopObj {
 
     @Override
     public String toString() {
-        return "ShopObj{" +
+        return "model.ShopObj{" +
                 "name='" + name + '\'' +
                 ",\n description='" + description + '\'' +
                 ",\n quantity=" + quantity +

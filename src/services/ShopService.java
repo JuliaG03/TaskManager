@@ -1,8 +1,12 @@
+package services;
+
+import utility.Data;
+
 import java.text.ParseException;
 
 public class ShopService {
 
-    private Data data;
+    private utility.Data data;
 
     public ShopService(Data data) {
         this.data = data;
@@ -12,7 +16,7 @@ public class ShopService {
   //from shopping task
 
 
-//can't add all of the ShopObj method here because they are mainly based on a certain ShoppingTask.
+//can't add all of the model.ShopObj method here because they are mainly based on a certain model.ShoppingTask.
 
     //public void
 

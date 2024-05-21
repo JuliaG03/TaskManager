@@ -1,9 +1,13 @@
+package services;
+
+import model.User;
+import services.AuthenticationService;
+import services.ShopService;
+import utility.Data;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
 
 public class MainService {
 
@@ -23,8 +27,8 @@ public class MainService {
     User admin = new User("admin", "admin","admin", dateOfBirth, "admin@admin.ro", "admin");
 
     public void startapp(){
-        System.out.println("####### Task Manager #######");
-        System.out.println("Welcome to your Task Manager!");
+        System.out.println("####### model.Task Manager #######");
+        System.out.println("Welcome to your model.Task Manager!");
         data.getUsers().add(admin);
     }
     public void authentication() throws ParseException {
@@ -186,7 +190,7 @@ public class MainService {
                         switch (input) {
                             case "1": {
                                 System.out.println("See your personal data");
-                                data.getLoggedin().printUser();
+                                data.getLoggedin().printUserDetails();
                             }
                             case "2": {
                                 System.out.println("2. Update your credentials:");

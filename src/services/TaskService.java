@@ -1,6 +1,14 @@
+package services;
+
+import model.ShopObj;
+import model.ShoppingTask;
+import model.Task;
+import model.WorkTask;
+import utility.Data;
+
 public class TaskService {
 
-    private Data data;
+    private utility.Data data;
 
     public TaskService(Data data) {
         this.data = data;
@@ -13,7 +21,7 @@ public class TaskService {
 
     public Task createTask(){
         System.out.println("What type of task do you want to add? ");
-        System.out.println("1. Task \n 2. Work Task \n 3.Shopping Task\n Please wirte 1, 2 or 3");
+        System.out.println("1. model.Task \n 2. Work model.Task \n 3.Shopping model.Task\n Please wirte 1, 2 or 3");
         String type = data.in.nextLine();
         switch(type){
             case "1":
@@ -60,7 +68,7 @@ public class TaskService {
             shoptask.printTask();
         }
         String selected = null;
-        System.out.println("Give the index number of the ShoppingTask you want to select: ");
+        System.out.println("Give the index number of the model.ShoppingTask you want to select: ");
         selected = data.in.nextLine();
         return data.getLoggedin().getShoppingTasks().getTaskList().get(Integer.parseInt(selected));
 
@@ -73,7 +81,7 @@ public class TaskService {
             task.printTask();
         }
         String selected = null;
-        System.out.println("Give the index number of the ShoppingTask you want to select: ");
+        System.out.println("Give the index number of the model.ShoppingTask you want to select: ");
         selected = data.in.nextLine();
         return data.getLoggedin().getTasks().getTaskList().get(Integer.parseInt(selected));
 
@@ -85,7 +93,7 @@ public class TaskService {
             task.printTask();
         }
         String selected = null;
-        System.out.println("Give the index number of the ShoppingTask you want to select: ");
+        System.out.println("Give the index number of the model.ShoppingTask you want to select: ");
         selected = data.in.nextLine();
         return data.getLoggedin().getWorkTasks().getTaskList().get(Integer.parseInt(selected));
     }

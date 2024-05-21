@@ -1,3 +1,10 @@
+package utility;
+
+import model.User;
+import services.AuthenticationService;
+import services.MainService;
+import utility.Data;
+
 import java.text.ParseException;
 import java.util.*;
 
@@ -24,7 +31,7 @@ public class Main {
 
 
 
-        data.getLoggedin().printUser();
+        data.getLoggedin().printUserDetails();
 
 
 
@@ -37,12 +44,12 @@ public class Main {
     public static void main(String[] args) throws ParseException {
         Scanner in = new Scanner(System.in);
         boolean end = false;
-         User loggedinUser = null;
-         MainService mainService = new MainService();
+         model.User loggedinUser = null;
+         services.MainService mainService = new services.MainService();
        while(!end){
 
-           System.out.println("Welcome to Task manager!");
-           System.out.println("\n What are you ? \n 1. User \n 2. Admin\n (Enter 1 or 2)\n");
+           System.out.println("Welcome to model.Task manager!");
+           System.out.println("\n What are you ? \n 1. model.User \n 2. Admin\n (Enter 1 or 2)\n");
            String typeofUser = in.nextLine();
            System.out.println(typeofUser + "user type \n");
            if (Objects.equals(typeofUser, "1")){  //admin
@@ -53,7 +60,7 @@ public class Main {
                        if(Objects.equals(choice, "1")) mainService.seeAllUsers();
                        else if(choice == "2"){
                            //to write function that has the admin choose a user by index:
-                           //User usertoDelete = mainService.chooseUser();
+                           //model.User usertoDelete = mainService.chooseUser();
                           // mainService.deleteUser(userToDelete);
                        }
                        else {end = true;}

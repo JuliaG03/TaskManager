@@ -1,3 +1,8 @@
+package model;
+
+import enums.TaskPriority;
+import enums.TaskStatus;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -54,7 +59,7 @@ public class Task {
         System.out.println("Status (TODO, IN_PROGRESS, DONE): ");
         String statusString = in.nextLine();
         try {
-            status = TaskStatus.valueOf(statusString.toUpperCase()); // Convert input string to TaskStatus enum
+            status = TaskStatus.valueOf(statusString.toUpperCase()); // Convert input string to enums.TaskStatus enum
         } catch (IllegalArgumentException e) {
             System.out.println("Invalid status value. Please enter TODO, IN_PROGRESS, or DONE.");
             return;
@@ -63,8 +68,8 @@ public class Task {
     public void printTask(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); // Format for displaying dates
 
-        System.out.println("Task Details:");
-        System.out.println("User: " + user);
+        System.out.println("model.Task Details:");
+        System.out.println("model.User: " + user);
         System.out.println("Title: " + title);
         System.out.println("Description: " + description);
         System.out.println("Due Date: " + dateFormat.format(dueDate));
@@ -73,7 +78,7 @@ public class Task {
     }
     @Override
     public String toString() {
-        return "Task{" +
+        return "model.Task{" +
                 "user=" + user +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +

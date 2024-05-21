@@ -1,3 +1,7 @@
+package utility;
+
+import model.User;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,7 +11,7 @@ public class Data {
     private List<User> users = new ArrayList<>();
     private User loggedin = null;
 
-    Scanner in = new Scanner(System.in);
+    public Scanner in = new Scanner(System.in);
 
     //constructors
     public Data(){}

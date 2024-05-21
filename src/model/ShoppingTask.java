@@ -1,10 +1,15 @@
+package model;
+
+import enums.TaskPriority;
+import enums.TaskStatus;
+
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class ShoppingTask extends Task{
+public class ShoppingTask extends Task {
 
     public String store;
     private List<ShopObj> shoppingList;
@@ -25,7 +30,7 @@ public class ShoppingTask extends Task{
 
     @Override
     public String toString() {
-        return "ShoppingTask{" +
+        return "model.ShoppingTask{" +
                 ", user=" + user +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +

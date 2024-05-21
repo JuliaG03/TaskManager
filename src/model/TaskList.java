@@ -1,3 +1,8 @@
+package model;
+
+import enums.TaskPriority;
+import enums.TaskStatus;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -32,7 +37,7 @@ public class TaskList <T extends Task>{
             if (task.getTitle().equals(title)){
                 return task;}
             }
-        System.out.println("Task not found! ");
+        System.out.println("model.Task not found! ");
         return null;}
 
     public TaskList<T> sortAlfabetically(){
@@ -44,13 +49,13 @@ public class TaskList <T extends Task>{
         taskList.sort(Comparator.comparing(Task::getPriority, (p1, p2) -> {
             return Integer.compare(p2.ordinal(), p1.ordinal()); //higher priority first
         }));
-        System.out.println("Task List sorted successfully");
+        System.out.println("model.Task List sorted successfully");
         return this;
     }
 
     public TaskList<T> sortByStatus(){
         taskList.sort(Comparator.comparing(Task::getStatus, (p1, p2) -> Integer.compare(p2.ordinal(), p1.ordinal())));
-        System.out.println("Task List sorted successfully");
+        System.out.println("model.Task List sorted successfully");
         return this;
     }
 
