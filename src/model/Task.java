@@ -6,6 +6,7 @@ import enums.TaskStatus;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Scanner;
 
 
@@ -128,5 +129,15 @@ public class Task {
         this.status = status;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Task task)) return false;
+        return Objects.equals(getUser(), task.getUser()) && Objects.equals(getTitle(), task.getTitle()) && Objects.equals(getDescription(), task.getDescription()) && Objects.equals(getDueDate(), task.getDueDate()) && getPriority() == task.getPriority() && getStatus() == task.getStatus();
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUser(), getTitle(), getDescription(), getDueDate(), getPriority(), getStatus());
+    }
 }

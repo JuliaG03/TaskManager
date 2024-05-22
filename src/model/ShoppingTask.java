@@ -4,10 +4,7 @@ import enums.TaskPriority;
 import enums.TaskStatus;
 
 import java.text.ParseException;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class ShoppingTask extends Task {
 
@@ -96,5 +93,17 @@ public class ShoppingTask extends Task {
 
     public void setShoppingList(List<ShopObj> shoppingList) {
         this.shoppingList = shoppingList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ShoppingTask that)) return false;
+        return Objects.equals(getStore(), that.getStore()) && Objects.equals(getShoppingList(), that.getShoppingList());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getStore(), getShoppingList());
     }
 }

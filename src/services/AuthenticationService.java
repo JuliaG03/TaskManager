@@ -37,7 +37,7 @@ public class AuthenticationService {
         while(true) {
             user.read(in);
             if (verifyUsername(user.getUsername())) {
-                this.data.getUsers().add(user);
+                this.data.addUser(user);
                 System.out.println("\nRegistration done. Please Login.\n");
                 logIn(data.in);
                 break;

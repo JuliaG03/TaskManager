@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -191,5 +192,15 @@ public class User {
         this.password = password;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+        return Objects.equals(getUserId(), user.getUserId()) && Objects.equals(getFirstName(), user.getFirstName()) && Objects.equals(getLastName(), user.getLastName()) && Objects.equals(getUsername(), user.getUsername()) && Objects.equals(getBirthDate(), user.getBirthDate()) && Objects.equals(getEmail(), user.getEmail()) && Objects.equals(getPassword(), user.getPassword()) && Objects.equals(getTasks(), user.getTasks()) && Objects.equals(getShoppingTasks(), user.getShoppingTasks()) && Objects.equals(getWorkTasks(), user.getWorkTasks());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUserId(), getFirstName(), getLastName(), getUsername(), getBirthDate(), getEmail(), getPassword(), getTasks(), getShoppingTasks(), getWorkTasks());
+    }
 }

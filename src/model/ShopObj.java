@@ -1,6 +1,7 @@
 package model;
 
 import java.text.ParseException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ShopObj {
@@ -125,5 +126,17 @@ public class ShopObj {
 
     public void setFinalPrice(double finalPrice) {
         this.finalPrice = finalPrice;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ShopObj shopObj)) return false;
+        return getQuantity() == shopObj.getQuantity() && Double.compare(getFinalPrice(), shopObj.getFinalPrice()) == 0 && Objects.equals(getName(), shopObj.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getDescription(), getQuantity(), getPricePerUnit(), getFinalPrice());
     }
 }

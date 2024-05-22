@@ -6,6 +6,7 @@ import model.Task;
 import model.User;
 
 import java.util.Date;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class WorkTask extends Task {
@@ -65,5 +66,18 @@ public class WorkTask extends Task {
 
     public void setBoss(String boss) {
         this.boss = boss;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof WorkTask workTask)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.equals(getProject(), workTask.getProject()) && Objects.equals(getBoss(), workTask.getBoss());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getProject(), getBoss());
     }
 }

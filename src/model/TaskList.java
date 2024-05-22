@@ -6,6 +6,7 @@ import enums.TaskStatus;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 public class TaskList <T extends Task>{
     private List<T> taskList;
@@ -119,5 +120,15 @@ public class TaskList <T extends Task>{
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TaskList<?> taskList1)) return false;
+        return Objects.equals(getTaskList(), taskList1.getTaskList());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTaskList());
+    }
 }
