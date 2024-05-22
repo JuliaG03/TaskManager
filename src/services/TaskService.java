@@ -1,14 +1,13 @@
 package services;
 
-import model.ShopObj;
-import model.ShoppingTask;
-import model.Task;
-import model.WorkTask;
+import model.*;
 import utility.Data;
 
 public class TaskService {
 
     private utility.Data data;
+    private TaskList<Task> tasklist;
+
 
     public TaskService(Data data) {
         this.data = data;
@@ -21,14 +20,35 @@ public class TaskService {
 
     public Task createTask(){
         System.out.println("What type of task do you want to add? ");
-        System.out.println("1. model.Task \n 2. Work model.Task \n 3.Shopping model.Task\n Please wirte 1, 2 or 3");
+        System.out.println("1. Task \n 2. Work Task \n 3.Shopping Task\n Please write 1, 2, 3, or 0 for exit.");
         String type = data.in.nextLine();
+        while(type!="0"){
         switch(type){
+            case "0":{
+                break;
+            }
             case "1":
-                Task task = new Task();
+            {Task task = new Task();
                 task.read(data.in);
+                tasklist.add(task);
 
-    }
+            break;}
+            case "2":
+            {WorkTask worktask = new WorkTask();
+                worktask.read(data.in);
+                tasklist.add(worktask);
+                break;
+            }
+            case "3":
+            {ShoppingTask shoppingTask = new ShoppingTask();
+                shoppingTask.read(data.in);
+                tasklist.add(shoppingTask);
+                break;
+            }
+            default:
+                System.out.println("The option you introduced is not correct.");
+        }
+        }
         return null;
     }
 

@@ -22,9 +22,7 @@ public class User {
     private TaskList<ShoppingTask> shoppingTasks = null;
     private TaskList<WorkTask> workTasks = null;
 
-    //added these 3 attributes - to do getters,setters, function to add to them, print,
-    //dont forget - toString to model.TaskList class
-    //
+
 
 
 
@@ -77,7 +75,7 @@ public class User {
         this.lastName = in.nextLine();
         System.out.println("Username: ");
         this.username = in.nextLine();
-        System.out.println("Birth date: ");
+        System.out.println("Birth date:  (pattern:\"yyyy-MM-dd\") :");
         String birthDateStr = in.nextLine();
         this.birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(birthDateStr);
         System.out.println("Email: ");
@@ -98,6 +96,11 @@ public class User {
         System.out.println("Email: " + getEmail());
     }
 
+    public  void printUserCredentials(){
+        System.out.println("Username: "+ getUsername());
+        System.out.println("Email: " + getEmail());
+        System.out.println("Password: "+ getPassword());
+    }
     @Override
     public String toString() {
         return "model.User{" +
@@ -114,7 +117,9 @@ public class User {
     public boolean verifyCredentials ( String username, String password){
         if (( username == this.username) || (password == this.password)){
             return true;
-        }else{return false;}
+        }
+        else
+        {return false;}
     }
 
 

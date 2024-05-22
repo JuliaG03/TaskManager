@@ -3,16 +3,15 @@ package model;
 import enums.TaskPriority;
 import enums.TaskStatus;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class TaskList <T extends Task>{
-    private List<T> taskList = new ArrayList<>();
+    private List<T> taskList;
 
 
-    public TaskList(List<T> taskList) {
+    private TaskList(List<T> taskList) {
         this.taskList = taskList;
     }
 
@@ -40,7 +39,7 @@ public class TaskList <T extends Task>{
         System.out.println("model.Task not found! ");
         return null;}
 
-    public TaskList<T> sortAlfabetically(){
+    public TaskList<T> sortAlphabetically(){
         Collections.sort(taskList, Comparator.comparing(Task::getTitle));
         return this;
     }

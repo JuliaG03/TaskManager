@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class ShoppingTask extends Task {
 
-    public String store;
+    private String store;
     private List<ShopObj> shoppingList;
 
     public ShoppingTask(User user, String title, String description, Date dueDate, TaskPriority priority, TaskStatus status, List<ShopObj> shoppingList) {

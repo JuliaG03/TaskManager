@@ -8,7 +8,7 @@ import java.util.Scanner;
 import static java.lang.System.in;
 
 public class AuthenticationService {
-    private Data data = new Data();
+    private Data data;
 
     public AuthenticationService(Data data) {
         this.data = data;

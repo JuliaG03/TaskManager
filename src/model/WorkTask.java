@@ -9,8 +9,8 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class WorkTask extends Task {
-    public String project;
-    public String boss;
+    private String project;
+    private String boss;
 
     public WorkTask(User user, String title, String description, Date dueDate, TaskPriority priority, TaskStatus status, String project) {
         super(user, title, description, dueDate, priority, status);

@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class ShopObj {
 
-    public String name;
-    public String description;
-    public int quantity;
-    public double pricePerUnit;
-    public double finalPrice;
+    private String name;
+    private String description;
+    private int quantity;
+    private double pricePerUnit;
+    private double finalPrice;
 
     //void read function +print
 
