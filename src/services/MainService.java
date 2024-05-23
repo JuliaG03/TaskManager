@@ -4,6 +4,7 @@ import model.User;
 
 import utility.Data;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,12 +15,13 @@ public class MainService {
     User admin;
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
     Date dateOfBirth = dateFormat.parse("04-04-2024");
-    private AuthenticationService authenticationService;
+    private UserandAuthenticationService userandAuthenticationService;
     private TaskService taskService;
+
     private Data data = new Data();
     public MainService(Data data) throws ParseException {
         this.data = data;
-        this.authenticationService = new AuthenticationService(data);
+        this.userandAuthenticationService = new UserandAuthenticationService(data);
         this.taskService = new TaskService(data);
         admin = new User("admin", "admin", "admin", dateOfBirth, "admin@admin.ro", "admin");
     }
@@ -52,8 +54,7 @@ public class MainService {
 
             switch (choice) {
                 case "0":
-                { choice = "0";
-                    break;}
+                {return;}
 
                 case "1": {
                     System.out.println("Here are all of your tasks:\n");
@@ -135,8 +136,7 @@ public class MainService {
 
                         switch (input) {
                             case "0": {
-                                input = "0";
-                                break;
+                                return;
                             }
                             case "1": {
                                 System.out.println("See your personal data");
@@ -146,7 +146,7 @@ public class MainService {
                             }
                             case "2": {
                                 System.out.println("2. Update your credentials:");
-                                authenticationService.updateCredentials(data.getLoggedin());
+                                userandAuthenticationService.updateCredentials(data.getLoggedin());
                                 AuditService.getInstance().logAction("Updated user credentials");
                                 break;
                             }
@@ -154,7 +154,7 @@ public class MainService {
                                 System.out.println("3. Update your password: ");
                                 Scanner in = new Scanner(System.in);
                                 String newPassword = in.nextLine();
-                                authenticationService.updatePassword(data.getLoggedin());
+                                userandAuthenticationService.updatePassword(data.getLoggedin());
                                 AuditService.getInstance().logAction("Updated user password");
                                 break;
                             }
@@ -194,7 +194,7 @@ public class MainService {
             choice = data.in.nextLine();
         }
     }
-    public void authentication() throws ParseException {
+    public void app() throws ParseException, SQLException {
 
 
          String exit = "1";
@@ -220,12 +220,12 @@ public class MainService {
                         }
 
                         case "1": {
-                            authenticationService.register(data.in);
+                            userandAuthenticationService.register(data.in);
                             AuditService.getInstance().logAction("registered new user");
                             break;
                         }
                         case "2": {
-                            authenticationService.logIn(data.in);
+                            userandAuthenticationService.logIn(data.in);
                             AuditService.getInstance().logAction("Logged in user");
                             user();
                             break;
@@ -242,7 +242,7 @@ public class MainService {
                     String user_admin = data.in.nextLine();
                     System.out.println("Enter admin password: ");
                     String pass = data.in.nextLine();
-                    if(authenticationService.loginAdmin(user_admin, pass))
+                    if(userandAuthenticationService.loginAdmin(user_admin, pass))
                         data.setLoggedin(admin);
                     AuditService.getInstance().logAction("Logged in Admin");
                         admin();
@@ -273,14 +273,14 @@ public class MainService {
                         exit = "0";
                     }
                     case "1": {
-                        authenticationService.seeAllUsers();
+                        userandAuthenticationService.seeAllUsers();
                         AuditService.getInstance().logAction("Admin accessed all users");
                         break;
                     }
                     case "2": {
 
                         AuditService.getInstance().logAction("Admin deleted user");
-                        authenticationService.deleteUser(authenticationService.chooseUser());
+                        userandAuthenticationService.deleteUser(userandAuthenticationService.chooseUser());
                         break;
                     }
                     default: {

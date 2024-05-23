@@ -1,16 +1,24 @@
 package services;
 
+import DataBase.DatabaseHelper;
+import DataBase.DatabaseInitialiser;
 import model.User;
 import utility.Data;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.util.Scanner;
 
+import static DataBase.JdbcSettings.connection;
 import static java.lang.System.in;
 
-public class AuthenticationService {
+public class UserandAuthenticationService {
     private Data data;
 
-    public AuthenticationService(Data data) {
+    public UserandAuthenticationService(Data data) {
         this.data = data;
     }
 
@@ -32,19 +40,25 @@ public class AuthenticationService {
         return data.getUsersFromJDBC().size() + 1;
     }
 
-    public void register(Scanner in) throws ParseException {
+    public void register(Scanner in) throws ParseException, SQLException {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/TaskManager", "root", "0909");
+             Statement statement = connection.createStatement()) {
+        DatabaseHelper databaseHelper = new DatabaseHelper(connection);
         User user = new User();
         System.out.println("\nPlease introduce your data: ");
         while (true) {
             user.read(in);
             if (verifyUsername(user.getUsername())) {
                 this.data.addUser(user);
+                DatabaseHelper.addUserToDatabase(user);
                 System.out.println("\nRegistration done. Please Login now.\n");
                 break;
             } else {
                 System.out.println("\n Username already exists. Please register again.");
             }
         }
+        } catch (SQLException e) {
+            e.printStackTrace();}
 
     }
 

@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class JdbcSettings {
     private final static String jdbcURL = "jdbc:mysql://localhost:3306/TaskManager";
-    private static Connection connection = null;
+    public static Connection connection = null;
     private static JdbcSettings jdbcSettings;
 
     static {

@@ -1,7 +1,17 @@
 package services;
 
+import enums.TaskPriority;
+import enums.TaskStatus;
 import model.*;
 import utility.Data;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import static DataBase.JdbcSettings.connection;
 
 public class TaskService {
 
@@ -80,6 +90,30 @@ public class TaskService {
         data.getLoggedin().getShoppingTasks().add(createShoppingTask());
     }
 
+    public List<Task> getAllTasks() throws SQLException {
+        List<Task> tasks = new ArrayList<>();
+        String query = "SELECT * FROM task";
+
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                User user = new User();
+                String title = resultSet.getString("title");
+                String description = resultSet.getString("description");
+                java.sql.Date dueDate = resultSet.getDate("dueDate");
+                TaskPriority priority = TaskPriority.valueOf(resultSet.getString("priority"));
+                TaskStatus status = TaskStatus.valueOf(resultSet.getString("status"));
+                String userId = resultSet.getString("user_id");
+
+                Task task = new Task(user, title, description, dueDate, priority, status);
+                tasks.add(task);
+            }
+        }
+
+        return tasks;
+    }
 
     public ShoppingTask selectShoppingTask(){
         int index = 0;
@@ -131,7 +165,7 @@ public class TaskService {
         }
         for( Task task : data.getLoggedin().getTasks().getTaskList()){
             task.printTask();
-        }
+        return;}
     }
 
     public void seeAllWorkTasks(){
