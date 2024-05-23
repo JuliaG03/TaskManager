@@ -23,31 +23,31 @@ public class TaskService {
         System.out.println("1. Task \n 2. Work Task \n 3.Shopping Task\n Please write 1, 2, 3, or 0 for exit.");
         String type = data.in.nextLine();
         while(type!="0"){
-        switch(type){
-            case "0":{
-                break;
-            }
-            case "1":
-            {Task task = new Task();
-                task.read(data.in);
-                tasklist.add(task);
+            switch(type){
+                case "0":{
+                    break;
+                }
+                case "1":
+                {Task task = new Task();
+                    task.read(data.in);
+                    tasklist.add(task);
 
-            break;}
-            case "2":
-            {WorkTask worktask = new WorkTask();
-                worktask.read(data.in);
-                tasklist.add(worktask);
-                break;
+                    break;}
+                case "2":
+                {WorkTask worktask = new WorkTask();
+                    worktask.read(data.in);
+                    tasklist.add(worktask);
+                    break;
+                }
+                case "3":
+                {ShoppingTask shoppingTask = new ShoppingTask();
+                    shoppingTask.read(data.in);
+                    tasklist.add(shoppingTask);
+                    break;
+                }
+                default:
+                    System.out.println("The option you introduced is not correct.");
             }
-            case "3":
-            {ShoppingTask shoppingTask = new ShoppingTask();
-                shoppingTask.read(data.in);
-                tasklist.add(shoppingTask);
-                break;
-            }
-            default:
-                System.out.println("The option you introduced is not correct.");
-        }
         }
         return null;
     }
@@ -57,7 +57,7 @@ public class TaskService {
         task.read(data.in);
         task.setUser(data.getLoggedin());
         return task;
-        }
+    }
 
     public WorkTask createWorkTask(){
         WorkTask task = new WorkTask();
@@ -72,16 +72,16 @@ public class TaskService {
         task.setUser(data.getLoggedin());
         return task;
     }
-     public void addAndCreateSimpleTask(){data.getLoggedin().getTasks().add(createSimpleTask());}
-     public void addAndCreteWorkTask(){
+    public void addAndCreateSimpleTask(){data.getLoggedin().getTasks().add(createSimpleTask());}
+    public void addAndCreteWorkTask(){
         data.getLoggedin().getWorkTasks().add(createWorkTask());
     }
-     public void addandCreateShoppingTask(){
+    public void addandCreateShoppingTask(){
         data.getLoggedin().getShoppingTasks().add(createShoppingTask());
     }
 
 
-     public ShoppingTask selectShoppingTask(){
+    public ShoppingTask selectShoppingTask(){
         int index = 0;
         for( ShoppingTask shoptask: data.getLoggedin().getShoppingTasks().getTaskList()){
             System.out.println((index+1) + "\n" + shoptask);
@@ -92,7 +92,7 @@ public class TaskService {
         selected = data.in.nextLine();
         return data.getLoggedin().getShoppingTasks().getTaskList().get(Integer.parseInt(selected));
 
-     }
+    }
 
     public Task selectTask(){
         int index = 0;
@@ -125,17 +125,29 @@ public class TaskService {
 
 
     public void seeAllSimpleTasks(){
+        if( data.getLoggedin().getTasks().getTaskList().equals(null)){
+            System.out.println("There is no task in your simple Tasklist");
+            return;
+        }
         for( Task task : data.getLoggedin().getTasks().getTaskList()){
             task.printTask();
         }
     }
 
     public void seeAllWorkTasks(){
+        if( data.getLoggedin().getWorkTasks().getTaskList().equals(null)){
+            System.out.println("There is no task in your Work Tasklist");
+            return;
+        }
         for( Task task : data.getLoggedin().getWorkTasks().getTaskList()){
             task.printTask();
         }
     }
     public void seeAllShoppingTasks(){
+        if( data.getLoggedin().getShoppingTasks().getTaskList().equals(null)){
+            System.out.println("There is no task in your shopping Tasklist");
+            return;
+        }
         for( Task task : data.getLoggedin().getShoppingTasks().getTaskList()){
             task.printTask();
         }

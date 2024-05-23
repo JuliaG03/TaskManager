@@ -2,8 +2,7 @@ package model;
 
 import enums.TaskPriority;
 import enums.TaskStatus;
-import model.Task;
-import model.User;
+
 
 import java.util.Date;
 import java.util.Objects;

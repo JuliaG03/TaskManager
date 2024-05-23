@@ -15,7 +15,7 @@ public class AuthenticationService {
     }
 
     public boolean verifyUsername(String username){
-        for (User userr: data.getUsers()){
+        for (User userr: data.getUsersFromJDBC()){
             if( userr.getUsername().equals(username))
                 return false;
         }
@@ -24,12 +24,12 @@ public class AuthenticationService {
 
     public int findUserIndex(User user){
         int index = 0;
-        for(User userr: data.getUsers()) {
+        for(User userr: data.getUsersFromJDBC()) {
 
             if (userr.equals(user)) return index+1;
             index++;
         }
-        return data.getUsers().size()+1;
+        return data.getUsersFromJDBC().size()+1;
     }
     public void register(Scanner in) throws ParseException {
         User user = new User();
@@ -38,8 +38,7 @@ public class AuthenticationService {
             user.read(in);
             if (verifyUsername(user.getUsername())) {
                 this.data.addUser(user);
-                System.out.println("\nRegistration done. Please Login.\n");
-                logIn(data.in);
+                System.out.println("\nRegistration done. Please Login now.\n");
                 break;
             } else {
                 System.out.println("\n Username already exists. Please register again.");
@@ -54,42 +53,45 @@ public class AuthenticationService {
         String username = in.nextLine();
         System.out.println("\nPassword: ");
         String password = in.nextLine();
-        for(User userr: data.getUsers()){
-            if(userr.verifyCredentials(username,password)){
-                data.setLoggedin(userr);
+        boolean founduser = false;
+        for(User userverify: data.getUsersFromJDBC()){
+            if(userverify.verifyCredentials(username.toLowerCase(),password.toLowerCase())){
+                founduser = true;
+                data.setLoggedin(userverify);
                 System.out.println("\nLogin Credentials correct!");
-                break;
+                return; // exit the method after correct login
+
             }
         }
-        if(data.getLoggedin().getUsername()!=username){
+        if(!founduser){
             System.out.println("There is no user registered with this username and password! Try again.");
         }
+        return;
+
     }
 
-    public void loginAdmin(String username, String password){
-       if (data.getUsers() != null) { // Check if users list is not null
-            for(User userr: data.getUsers()){
-                if(userr.verifyCredentials(username,password)){
-                    data.setLoggedin(userr);
+    public boolean loginAdmin(String username, String password){
+            if(username.equals("admin")&& password.equals("admin")){
                     System.out.println("\nLogin Credentials correct!");
-                    return; // Exit method after successful login
+
+                    return true ; // Exit method after successful login
                 }
-            }
-       }
-       System.out.println("There is no admin registered with this username and password! Try again.");
+
+        System.out.println("There is no admin registered with this username and password! Try again.");
+            return false;
     }
 
 
     public User chooseUser(){
         Scanner in = new Scanner(System.in);
         int index=0;
-        for(User userr: data.getUsers()){
+        for(User userr: data.getUsersFromJDBC()){
             System.out.println(index +". \n" );
             userr.printUserDetails();
         }
         System.out.println("Choose user index: ");
         index = Integer.parseInt(in.nextLine());
-        return data.getUsers().get(index);
+        return data.getUsersFromJDBC().get(index);
     }
 
 
@@ -119,17 +121,18 @@ public class AuthenticationService {
 
 
     public void deleteUser(User user){
-        if(findUserIndex(user)!=data.getUsers().size()+1) data.getUsers().remove(findUserIndex(user));
+        if(findUserIndex(user)!=data.getUsersFromJDBC().size()+1) data.getUsers().remove(findUserIndex(user));
 
     }
 
     public void seeAllUsers(){
         int i =0;
-        for(User user: data.getUsers()){
+        for(User user: data.getUsersFromJDBC()){
             i++;
             System.out.println("\n" + i +". ");
             user.printUserDetails();
         }
+        return;
     }
 
 }

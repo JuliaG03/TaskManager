@@ -1,7 +1,6 @@
 package model;
 
-import model.ShoppingTask;
-import model.Task;
+
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,9 +18,9 @@ public class User {
     private Date birthDate;
     private String email, password;
 
-    private TaskList<Task> tasks = null;
-    private TaskList<ShoppingTask> shoppingTasks = null;
-    private TaskList<WorkTask> workTasks = null;
+    private TaskList<Task> tasks;
+    private TaskList<ShoppingTask> shoppingTasks;
+    private TaskList<WorkTask> workTasks;
 
 
 
@@ -46,14 +45,7 @@ public class User {
 
         this.read(in);
     }
-  /*
-    public model.User(int userId, ResultSet in ) throws SQLException{
-        this.userId = userId;
-        this.read(in);
-    }
 
-
-   */
   private String generateUserId() {
       return UUID.randomUUID().toString();
   }
@@ -89,12 +81,14 @@ public class User {
     public void printUserDetails(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-        System.out.println("model.User ID: " + getUserId());
+        System.out.println("User ID: " + getUserId());
         System.out.println("First Name: " + getFirstName());
         System.out.println("Last Name: " + getLastName());
         System.out.println("Username: "+ getUsername());
         System.out.println("Birth Date: " + dateFormat.format(getBirthDate()));
         System.out.println("Email: " + getEmail());
+        return;
+
     }
 
     public  void printUserCredentials(){
@@ -116,12 +110,7 @@ public class User {
     }
 
     public boolean verifyCredentials ( String username, String password){
-        if (( username == this.username) || (password == this.password)){
-            return true;
-        }
-        else
-        {return false;}
-    }
+        return this.username.equals(username.toLowerCase()) && this.password.equals(password.toLowerCase());}
 
 
     //getters + setters

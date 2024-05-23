@@ -1,9 +1,9 @@
 package utility;
 
+import DataBase.JdbcSettings;
 import model.User;
 import services.AuthenticationService;
 import services.MainService;
-import utility.Data;
 
 import java.text.ParseException;
 import java.util.*;
@@ -17,18 +17,17 @@ public class Main {
 
     public static void main(String[] args) throws ParseException{
         List<User> listOfUsers = new ArrayList<>();
-        User loggedinuser = new User();
+        User loggedinuser = null;
         Data data = new Data(listOfUsers,loggedinuser);
         AuthenticationService authenticationService = new AuthenticationService(data);
         MainService mainService = new MainService(data) ;
+        JdbcSettings J = JdbcSettings.getJdbcSettings();
 
         mainService.startapp();
 
         mainService.authentication();  // + methods for admin
 
-        mainService.user();
 
-        //mainService.admin();
 
 
 

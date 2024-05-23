@@ -12,7 +12,7 @@ public class TaskList <T extends Task>{
     private List<T> taskList;
 
 
-    private TaskList(List<T> taskList) {
+    public TaskList(List<T> taskList) {
         this.taskList = taskList;
     }
 
