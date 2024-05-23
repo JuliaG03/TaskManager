@@ -55,7 +55,7 @@ public class TaskService {
     public Task createSimpleTask(){
         Task task = new Task();
         task.read(data.in);
-        task.setUser(data.getLoggedin());
+        task.setUser(data.getLoggedin());  //setez userul al taskului creat
         return task;
     }
 

@@ -14,27 +14,28 @@ public class AuthenticationService {
         this.data = data;
     }
 
-    public boolean verifyUsername(String username){
-        for (User userr: data.getUsersFromJDBC()){
-            if( userr.getUsername().equals(username))
+    public boolean verifyUsername(String username) {
+        for (User userr : data.getUsersFromJDBC()) {
+            if (userr.getUsername().equals(username))
                 return false;
         }
         return true;
     }
 
-    public int findUserIndex(User user){
+    public int findUserIndex(User user) {
         int index = 0;
-        for(User userr: data.getUsersFromJDBC()) {
+        for (User userr : data.getUsersFromJDBC()) {
 
-            if (userr.equals(user)) return index+1;
+            if (userr.equals(user)) return index + 1;
             index++;
         }
-        return data.getUsersFromJDBC().size()+1;
+        return data.getUsersFromJDBC().size() + 1;
     }
+
     public void register(Scanner in) throws ParseException {
         User user = new User();
         System.out.println("\nPlease introduce your data: ");
-        while(true) {
+        while (true) {
             user.read(in);
             if (verifyUsername(user.getUsername())) {
                 this.data.addUser(user);
@@ -46,7 +47,8 @@ public class AuthenticationService {
         }
 
     }
-    public void logIn(Scanner in) throws ParseException{
+
+    public void logIn(Scanner in) throws ParseException {
         System.out.println("\nPlease Log in: \n");
         User user = new User();
         System.out.println("\nUsername: ");
@@ -54,8 +56,8 @@ public class AuthenticationService {
         System.out.println("\nPassword: ");
         String password = in.nextLine();
         boolean founduser = false;
-        for(User userverify: data.getUsersFromJDBC()){
-            if(userverify.verifyCredentials(username.toLowerCase(),password.toLowerCase())){
+        for (User userverify : data.getUsersFromJDBC()) {
+            if (userverify.verifyCredentials(username.toLowerCase(), password.toLowerCase())) {
                 founduser = true;
                 data.setLoggedin(userverify);
                 System.out.println("\nLogin Credentials correct!");
@@ -63,30 +65,30 @@ public class AuthenticationService {
 
             }
         }
-        if(!founduser){
+        if (!founduser) {
             System.out.println("There is no user registered with this username and password! Try again.");
         }
         return;
 
     }
 
-    public boolean loginAdmin(String username, String password){
-            if(username.equals("admin")&& password.equals("admin")){
-                    System.out.println("\nLogin Credentials correct!");
+    public boolean loginAdmin(String username, String password) {
+        if (username.equals("admin") && password.equals("admin")) {
+            System.out.println("\nLogin Credentials correct!");
 
-                    return true ; // Exit method after successful login
-                }
+            return true; // Exit method after successful login
+        }
 
         System.out.println("There is no admin registered with this username and password! Try again.");
-            return false;
+        return false;
     }
 
 
-    public User chooseUser(){
+    public User chooseUser() {
         Scanner in = new Scanner(System.in);
-        int index=0;
-        for(User userr: data.getUsersFromJDBC()){
-            System.out.println(index +". \n" );
+        int index = 0;
+        for (User userr : data.getUsersFromJDBC()) {
+            System.out.println(index + ". \n");
             userr.printUserDetails();
         }
         System.out.println("Choose user index: ");
@@ -103,33 +105,33 @@ public class AuthenticationService {
         user.read(scanner);
     }
 
-    public void updatePassword(User user) throws ParseException{
-        Scanner in  =new Scanner(System.in);
+    public void updatePassword(User user) throws ParseException {
+        Scanner in = new Scanner(System.in);
         System.out.println("\nVerify your  old password: ");
         String password = in.nextLine();
-        if( user.getPassword().equals(password)){
+        if (user.getPassword().equals(password)) {
             System.out.println("\nCorrect password! Please enter your new password: ");
             password = in.nextLine();
             user.setPassword(password);
             System.out.println("\nPassword changed successfully. ");
-        } else{
-            System.out.println("/nIncorrect password.");}
+        } else {
+            System.out.println("/nIncorrect password.");
+        }
 
     }
     //----------------------ADMIN:
 
 
-
-    public void deleteUser(User user){
-        if(findUserIndex(user)!=data.getUsersFromJDBC().size()+1) data.getUsers().remove(findUserIndex(user));
+    public void deleteUser(User user) {
+        if (findUserIndex(user) != data.getUsersFromJDBC().size() + 1) data.getUsers().remove(findUserIndex(user));
 
     }
 
-    public void seeAllUsers(){
-        int i =0;
-        for(User user: data.getUsersFromJDBC()){
+    public void seeAllUsers() {
+        int i = 0;
+        for (User user : data.getUsersFromJDBC()) {
             i++;
-            System.out.println("\n" + i +". ");
+            System.out.println("\n" + i + ". ");
             user.printUserDetails();
         }
         return;
